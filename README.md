@@ -93,22 +93,22 @@ redistributed to each station every morning in the first week?"
 I transformed the raw Citibike data into an **optimized Star Schema** - the industry standard for analytics (used by Netflix, Spotify, Amazon).
 
 ```
-                ┌─────────────────┐
-                │   fact_rides    │
-                │─────────────────│
-                │ ride_id (PK)    │
-                │ start_station   │
-                │ end_station     │
-                │ date_id (FK)    │
-                │ bike_type_id(FK)│
-                │ member_type_id  │
-                │   (FK)          │
-                │ time_of_day_id  │
-                └────────┬────────┘
-                         │
-    ┌────────────────────┼────────────────────┬────────────────────┐
-    │                    │                    │                    │
-    ▼                    ▼                    ▼                    ▼
+                    ┌─────────────────┐
+                    │   fact_rides    │
+                    │─────────────────│
+                    │ ride_id (PK)    │
+                    │ start_station   │
+                    │ end_station     │
+                    │ date_id (FK)    │
+                    │ bike_type_id(FK)│
+                    │ member_type_id  │
+                    │   (FK)          │
+                    │ time_of_day_id  │
+                    └────────┬────────┘
+                             │
+        ┌────────────────────┼────────────────────┬────────────────────┐
+        │                    │                    │                    │
+        ▼                    ▼                    ▼                    ▼
 ┌──────────────┐    ┌──────────────┐    ┌─────────────────┐    ┌──────────────────┐
 │   dim_date   │    │dim_bike_type │    │ dim_time_of_day │    │ dim_member_type  │
 │──────────────│    │──────────────│    │─────────────────│    │──────────────────│
@@ -248,7 +248,7 @@ Try asking the agent these questions:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/citibike-llm-analytics.git
+git clone https://github.com/lubobali/citibike-llm-analytics.git
 cd citibike-llm-analytics
 ```
 
@@ -337,8 +337,9 @@ In the spirit of transparency, here are the AI tools used in this project:
 | Tool | How It Was Used |
 |------|-----------------|
 | **Claude (Anthropic)** | Brainstorming architecture, debugging code, README writing |
-| **GitHub Copilot** | Code autocompletion and suggestions |
-| **OpenAI GPT-4o** | Powers the LuBot agent's natural language responses |
+| **Cursor IDE** | AI-powered code editor for coding and creating files |
+| **OpenAI GPT-4o** | One of two LLM options powering LuBot's responses (Cloud) |
+| **Ollama (Llama)** | One of two LLM options powering LuBot's responses (Local/Private) |
 
 The core logic, SQL templates, and system design are my own work. AI tools were used as assistants, similar to how developers use Stack Overflow or documentation.
 
@@ -349,15 +350,15 @@ The core logic, SQL templates, and system design are my own work. AI tools were 
 **Lubo Bali**
 - 🌐 Website: [LuBot.ai](https://lubot.ai)
 - 💼 Portfolio: [lubobali.com](https://lubobali.com)
-- 📧 Email: [Available on request]
-- 💻 GitHub: [github.com/yourusername](https://github.com/yourusername)
+- 📧 Email: data@lubobali.com
+- 💻 GitHub: [github.com/lubobali](https://github.com/lubobali)
 
 ---
 
 ## 📜 License
 
-This project is created for portfolio demonstration purposes.
+MIT License - Feel free to use this code for learning and inspiration.
 
 ---
 
-*Built with ❤️ by Lubo Bali | Powered by LuBot.ai*
+*Built with ❤️ and passion by Lubo Bali | Powered by LuBot.ai*
