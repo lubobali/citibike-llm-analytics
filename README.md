@@ -93,27 +93,29 @@ redistributed to each station every morning in the first week?"
 I transformed the raw Citibike data into an **optimized Star Schema** - the industry standard for analytics (used by Netflix, Spotify, Amazon).
 
 ```
-                    ┌─────────────────┐
-                    │   fact_rides    │
-                    │─────────────────│
-                    │ ride_id (PK)    │
-                    │ start_station   │
-                    │ end_station     │
-                    │ date_id (FK)    │
-                    │ bike_type_id(FK)│
-                    │ time_of_day_id  │
-                    └────────┬────────┘
-                             │
-        ┌────────────────────┼────────────────────┐
-        │                    │                    │
-        ▼                    ▼                    ▼
-┌──────────────┐    ┌──────────────┐    ┌─────────────────┐
-│   dim_date   │    │dim_bike_type │    │ dim_time_of_day │
-│──────────────│    │──────────────│    │─────────────────│
-│ date_id (PK) │    │bike_type_id  │    │ time_of_day_id  │
-│ month_name   │    │bike_type_name│    │ time_of_day_name│
-│ month_num    │    │ (classic,    │    │ (Morning,       │
-│ day_name     │    │  electric)   │    │  Afternoon,     │
+                ┌─────────────────┐
+                │   fact_rides    │
+                │─────────────────│
+                │ ride_id (PK)    │
+                │ start_station   │
+                │ end_station     │
+                │ date_id (FK)    │
+                │ bike_type_id(FK)│
+                │ member_type_id  │
+                │   (FK)          │
+                │ time_of_day_id  │
+                └────────┬────────┘
+                         │
+    ┌────────────────────┼────────────────────┬────────────────────┐
+    │                    │                    │                    │
+    ▼                    ▼                    ▼                    ▼
+┌──────────────┐    ┌──────────────┐    ┌─────────────────┐    ┌──────────────────┐
+│   dim_date   │    │dim_bike_type │    │ dim_time_of_day │    │ dim_member_type  │
+│──────────────│    │──────────────│    │─────────────────│    │──────────────────│
+│ date_id (PK) │    │bike_type_id  │    │ time_of_day_id  │    │ member_type_id   │
+│ month_name   │    │bike_type_name│    │ time_of_day_name│    │ member_type_name │
+│ month_num    │    │ (classic,    │    │ (Morning,       │    │ (member, casual) │
+│ day_name     │    │  electric)   │    │  Afternoon,     │    └──────────────────┘
 │ day_num (1-7)│    └──────────────┘    │  Evening, Night)│
 │ year         │                        └─────────────────┘
 └──────────────┘
