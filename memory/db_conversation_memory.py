@@ -1,0 +1,3 @@
+class DBConversationMemory:
+    pass
+
