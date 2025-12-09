@@ -246,7 +246,7 @@ Try asking the agent these questions:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/lubobali/citibike-llm-analytics.git
+git clone https://github.com/yourusername/citibike-llm-analytics.git
 cd citibike-llm-analytics
 ```
 
@@ -348,7 +348,7 @@ The core logic, SQL templates, and system design are my own work. AI tools were 
 - 🌐 Website: [LuBot.ai](https://lubot.ai)
 - 💼 Portfolio: [lubobali.com](https://lubobali.com)
 - 📧 Email: [Available on request]
-- 💻 GitHub: [github.com/lubobali](https://github.com/lubobali)
+- 💻 GitHub: [github.com/yourusername](https://github.com/yourusername)
 
 ---
 
